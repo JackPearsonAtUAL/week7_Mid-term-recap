@@ -32,10 +32,10 @@ def MessageBorder(user, text):
         """
         lines = text.splitlines()
         width = max(len(s) for s in lines)
-        res = ['* ' + '-' * (width-2) + ' *']
+        res = ['    * ' + '-' * (width-2) + ' *']
         for s in lines:
-            res.append('│' + (s + ' ' * width)[:width] + '│')
-        res.append('* ' + '-' * (width-2) + ' *')
+            res.append('    │' + (s + ' ' * width)[:width] + '│')
+        res.append('    * ' + '-' * (width-2) + ' *')
         return '\n'.join(res)
     else:
         lines = text.splitlines()
@@ -74,7 +74,7 @@ def MessageInput(messaging):
         elif len(ident) > 1:
             if ident[1] != " " and ident[1] != "":
                 del ident[0]
-                print(f"{MessageBorder(user, ConcatMessage(ident)):>10}")
+                print(MessageBorder(user, ConcatMessage(ident)))
             else:
                 print("exit")
                 messaging = False
