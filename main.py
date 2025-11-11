@@ -15,8 +15,7 @@ def CheckUser():
             e = False
         except:
             print("Error please put in just a positive intager") 
-
-
+    
     return "usr"+str(i)
 
 def ConcatMessage(m):
@@ -48,7 +47,7 @@ def MessageBorder(user, text):
         return '\n'.join(res)
 
 def MessageInput(messaging):
-    if messaging == True:
+    while messaging == True:
         #get input
         s = input("")
         
@@ -71,14 +70,16 @@ def MessageInput(messaging):
                 print(MessageBorder(user, ConcatMessage(ident)))
             else:
                 messaging = False
+                print("exit")
         elif len(ident) > 1:
             if ident[1] != " " and ident[1] != "":
                 del ident[0]
                 print(f"{MessageBorder(user, ConcatMessage(ident)):>10}")
             else:
+                print("exit")
                 messaging = False
         
         MessageInput(messaging)
 
-print("While using please input identifier then text")
+print("To print a message you must prefix it with\n'usr'+usernumber then enter a space")
 MessageInput(corresponding)
